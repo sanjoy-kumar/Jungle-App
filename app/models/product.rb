@@ -10,4 +10,14 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  private
+    def ensure_has_price
+      if self.price <= 0
+        self.price = false 
+      end
+      puts self.price
+      self.price
+    end
+  
+
 end
